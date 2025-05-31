@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=`, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    <script>
+        /*Need 3 variables - Rock Paper Scissors*/
+         let rock = "Rock";
+            let paper = "Paper";
+            let scissors = "Scissors";
+
+        function getcomputerchoice()
+        {
+            /*need a random number generator 0 to 2*/
+           let number =  Math.floor(Math.random()* 3);
+           /*return variable/number*/
+            if (number == 0)
+        {
+            return (rock);
+        }
+            else if (number == 1)
+        {
+            return (paper);
+        }
+        else 
+        {
+            return (scissors);
+        }
+        }
+        console.log(getcomputerchoice());
+        
+    </script>
+</body>
+</html>
