@@ -11,9 +11,8 @@
          let rock = "rock";
             let paper = "paper";
             let scissors = "scissors";
-            /* Scores */
-          let humanscore = 0;
-          let computerscore = 0;
+            
+          
         function getcomputerchoice()
         {
             /*need a random number generator 0 to 2*/
@@ -38,17 +37,57 @@
         function gethumanchoice ()
         {
             let answer = prompt("Choose : Rock , Paper , Or Scissors ").toLowerCase();
+            console.log("You: " + answer);
             return answer;
         }
         
-       function playRound(humanselection,computerselection)
+       function choices ()
+
        {
+ computerselection = getcomputerchoice();
+       console.log("Machine: "+computerselection);
+        humanselection = gethumanchoice();
+       }
+       let humanselecton = null;
+       let computerselection = null;
+       /*playRound(humanselection, computerselection);*/
+       playgame();
+       function playgame ()
+       {
+        /* Scores */
+let humanscore = 0;
+          let computerscore = 0;
+          choices();
+          playRound(humanselection,computerselection);
+          choices();
+          playRound(humanselection,computerselection);
+          choices();
+          playRound(humanselection,computerselection);
+          choices();
+          playRound(humanselection,computerselection);
+          choices();
+          playRound(humanselection,computerselection);
+          if (humanscore > computerscore)
+          {
+            console.log("You Win!! You got " + humanscore + " Points, and the machine got "+ computerscore + " Points")
+          }
+          else if(humanscore < computerscore)
+          {
+            console.log("You Lost, You got " + humanscore + " Points, and the machine got "+ computerscore + " Points")
+          }
+          else {
+            console.log("It's A Draw, You got " + humanscore + " Points, and the machine got "+ computerscore + " Points")
+          }
+function playRound(humanselection,computerselection)
+       {
+        
         let humananswer = humanselection;
         let computeranswer = computerselection;
 
         if (humananswer == "rock" && computeranswer == "scissors")
         {
 console.log("You win " + humananswer + " Beats "+ computeranswer);
+humanscore++;
         }
         
         else if (humananswer == "rock" && computeranswer == "rock")
@@ -58,6 +97,7 @@ console.log("You win " + humananswer + " Beats "+ computeranswer);
         else if (humananswer == "paper" && computeranswer == "rock")
        {
        console.log("You win " + humananswer + " Beats "+ computeranswer);
+       humanscore++;
        }
         else if (humananswer == "paper" && computeranswer == "paper")
        {
@@ -66,6 +106,7 @@ console.log("You win " + humananswer + " Beats "+ computeranswer);
        else if (humananswer == "scissors" && computeranswer == "paper")
        {
        console.log("You win " + humananswer + " Beats "+ computeranswer);
+       humanscore++;
        }
         else if (humananswer == "scissors" && computeranswer == "scissors")
        {
@@ -73,13 +114,13 @@ console.log("You win " + humananswer + " Beats "+ computeranswer);
        }
        else{
         console.log("You Lost "+ computeranswer + " Beats "+humananswer);
+        computerscore++;
        }
        }
-       const computerselection = getcomputerchoice();
-       console.log(computerselection);
-       const humanselection = gethumanchoice();
-       
-       playRound(humanselection, computerselection);
+
+
+
+       }
     </script>
 </body>
 </html>
