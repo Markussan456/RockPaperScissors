@@ -8,10 +8,12 @@
 <body>
     <script>
         /*Need 3 variables - Rock Paper Scissors*/
-         let rock = "Rock";
-            let paper = "Paper";
-            let scissors = "Scissors";
-
+         let rock = "rock";
+            let paper = "paper";
+            let scissors = "scissors";
+            /* Scores */
+          let humanscore = 0;
+          let computerscore = 0;
         function getcomputerchoice()
         {
             /*need a random number generator 0 to 2*/
@@ -30,14 +32,54 @@
         {
             return (scissors);
         }
+        
         }
-         /*console.log(getcomputerchoice());*/
+         
         function gethumanchoice ()
         {
-            let answer = prompt("Choose : Rock , Paper , Or Scissors ");
+            let answer = prompt("Choose : Rock , Paper , Or Scissors ").toLowerCase();
             return answer;
         }
-        console.log("You entered " + gethumanchoice());
+        
+       function playRound(humanselection,computerselection)
+       {
+        let humananswer = humanselection;
+        let computeranswer = computerselection;
+
+        if (humananswer == "rock" && computeranswer == "scissors")
+        {
+console.log("You win " + humananswer + " Beats "+ computeranswer);
+        }
+        
+        else if (humananswer == "rock" && computeranswer == "rock")
+       {
+       console.log("Draw you both got " + humananswer);
+       }
+        else if (humananswer == "paper" && computeranswer == "rock")
+       {
+       console.log("You win " + humananswer + " Beats "+ computeranswer);
+       }
+        else if (humananswer == "paper" && computeranswer == "paper")
+       {
+       console.log("Draw you both got " + humananswer);
+       }
+       else if (humananswer == "scissors" && computeranswer == "paper")
+       {
+       console.log("You win " + humananswer + " Beats "+ computeranswer);
+       }
+        else if (humananswer == "scissors" && computeranswer == "scissors")
+       {
+       console.log("Draw you both got " + humananswer);
+       }
+       else{
+        console.log("You Lost "+ computeranswer + " Beats "+humananswer);
+       }
+       }
+       const computerselection = getcomputerchoice();
+       console.log(computerselection);
+       const humanselection = gethumanchoice();
+       
+       playRound(humanselection, computerselection);
     </script>
 </body>
 </html>
