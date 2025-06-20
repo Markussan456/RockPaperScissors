@@ -11,6 +11,13 @@
         <button id="papirus">Paper</button>
         <button id="scissorss">Scissors</button>
     </div>
+    <div class="resultons" id="resultons">
+        <h1>HumanScore: <p id="humanscore"></p> 
+        <h2>MachineScore: <p id="machinescore"></p></h2></h1>
+<ul id="listik">
+
+</ul>
+    </div>
     <script>
   
         /*Need 3 variables - Rock Paper Scissors*/
@@ -45,9 +52,9 @@
            /* let answer = prompt("Choose : Rock , Paper , Or Scissors ").toLowerCase();
             console.log("You: " + answer);
             return answer;*/
-            rockbtn.addEventListener("click",()=>{
+           /* rockbtn.addEventListener("click",()=>{
                 return "rock";
-            })
+            })*/
         }
         
        function choices ()
@@ -55,32 +62,52 @@
        {
  computerselection = getcomputerchoice();
        console.log("Machine: "+computerselection);
+       
        /* humanselection = gethumanchoice();*/
        }
        let humanselecton = null;
        let computerselection = null;
        /*playRound(humanselection, computerselection);*/
-       
+       let humanscore = 0;
+          let computerscore = 0;
+          
        function playgame (humanselection)
        {
+        machine.textContent = computerscore;
+        human.textContent = humanscore;
+        if(humanscore >= 5 || computerscore >= 5)
+       {
+         humanscore = 0;
+           computerscore = 0;
+       }
+        returnresult("You chose => " +humanselection);
+        console.log(humanscore + "     comp - "+computerscore)
         /* Scores */
-let humanscore = 0;
-          let computerscore = 0;
+
          choices();
+         returnresult("Machine chose => "+ computerselection);
          playRound(humanselection,computerselection);
           
-          
-          if (humanscore > computerscore)
+          if(humanscore == 5 || computerscore == 5)
           {
-            console.log("You Win!! You got " + humanscore + " Points, and the machine got "+ computerscore + " Points")
+            setTimeout(() => {
+                cleartable();
+            },3000);
+if (humanscore > computerscore)
+          {
+           returnresult("You Win!! You got " + humanscore + " Points, and the machine got "+ computerscore + " Points");
+
           }
           else if(humanscore < computerscore)
           {
-            console.log("You Lost, You got " + humanscore + " Points, and the machine got "+ computerscore + " Points")
+            returnresult("You Lost, You got " + humanscore + " Points, and the machine got "+ computerscore + " Points");
+
           }
           else {
-            console.log("It's A Draw, You got " + humanscore + " Points, and the machine got "+ computerscore + " Points")
+            returnresult("It's A Draw, You got " + humanscore + " Points, and the machine got "+ computerscore + " Points");
           }
+          }
+          
 function playRound(humanselection,computerselection)
        {
         
@@ -89,40 +116,51 @@ function playRound(humanselection,computerselection)
 
         if (humananswer == "rock" && computeranswer == "scissors")
         {
-console.log("You win " + humananswer + " Beats "+ computeranswer);
+            
+
+returnresult("You win " + humananswer + " Beats "+ computeranswer);
 humanscore++;
         }
         
         else if (humananswer == "rock" && computeranswer == "rock")
        {
-       console.log("Draw you both got " + humananswer);
+       returnresult("Draw you both got " + humananswer);
        }
         else if (humananswer == "paper" && computeranswer == "rock")
        {
-       console.log("You win " + humananswer + " Beats "+ computeranswer);
+        returnresult("You win " + humananswer + " Beats "+ computeranswer);
        humanscore++;
        }
         else if (humananswer == "paper" && computeranswer == "paper")
        {
-       console.log("Draw you both got " + humananswer);
+       returnresult("Draw you both got " + humananswer);
        }
        else if (humananswer == "scissors" && computeranswer == "paper")
        {
-       console.log("You win " + humananswer + " Beats "+ computeranswer);
+       returnresult("You win " + humananswer + " Beats "+ computeranswer);
        humanscore++;
        }
         else if (humananswer == "scissors" && computeranswer == "scissors")
        {
-       console.log("Draw you both got " + humananswer);
+       returnresult("Draw you both got " + humananswer);
        }
        else{
-        console.log("You Lost "+ computeranswer + " Beats "+humananswer);
+        returnresult("You Lost "+ computeranswer + " Beats "+humananswer);
         computerscore++;
        }
        }
 
+function returnresult(str)
+{
+    const li = document.createElement("li");
+    li.textContent = str;
+    resultable.appendChild(li);
+}
 
-
+       }
+       function cleartable()
+       {
+        resultable.textContent = "";
        }
              let rockbtn = document.getElementById("rockus");
         rockbtn.addEventListener("click",()=>{
@@ -136,6 +174,10 @@ humanscore++;
         scisorbtn.addEventListener("click",()=>{
            playgame("scissors");
         })
+        let resultable = document.getElementById("listik");
+        let machine = document.getElementById("machinescore");
+        let human = document.getElementById("humanscore");
+        let gameover = false;
     </script>
 </body>
 </html>
