@@ -7,7 +7,9 @@
 </head>
 <body>
     <div class="container">
-        <button id="play">Play Round !</button>
+        <button id="rockus">Rock</button>
+        <button id="papirus">Paper</button>
+        <button id="scissorss">Scissors</button>
     </div>
     <script>
   
@@ -40,9 +42,12 @@
          
         function gethumanchoice ()
         {
-            let answer = prompt("Choose : Rock , Paper , Or Scissors ").toLowerCase();
+           /* let answer = prompt("Choose : Rock , Paper , Or Scissors ").toLowerCase();
             console.log("You: " + answer);
-            return answer;
+            return answer;*/
+            rockbtn.addEventListener("click",()=>{
+                return "rock";
+            })
         }
         
        function choices ()
@@ -50,13 +55,13 @@
        {
  computerselection = getcomputerchoice();
        console.log("Machine: "+computerselection);
-        humanselection = gethumanchoice();
+       /* humanselection = gethumanchoice();*/
        }
        let humanselecton = null;
        let computerselection = null;
        /*playRound(humanselection, computerselection);*/
        
-       function playgame ()
+       function playgame (humanselection)
        {
         /* Scores */
 let humanscore = 0;
@@ -119,9 +124,17 @@ humanscore++;
 
 
        }
-             let playbutton = document.getElementById("play");
-        playbutton.addEventListener("click",()=>{
-           playgame();
+             let rockbtn = document.getElementById("rockus");
+        rockbtn.addEventListener("click",()=>{
+           playgame("rock");
+        })
+         let papirusbtn = document.getElementById("papirus");
+        papirusbtn.addEventListener("click",()=>{
+           playgame("paper");
+        })
+         let scisorbtn = document.getElementById("scissorss");
+        scisorbtn.addEventListener("click",()=>{
+           playgame("scissors");
         })
     </script>
 </body>
