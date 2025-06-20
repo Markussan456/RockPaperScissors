@@ -73,8 +73,7 @@
           
        function playgame (humanselection)
        {
-        machine.textContent = computerscore;
-        human.textContent = humanscore;
+       
         if(humanscore >= 5 || computerscore >= 5)
        {
          humanscore = 0;
@@ -148,8 +147,10 @@ humanscore++;
         returnresult("You Lost "+ computeranswer + " Beats "+humananswer);
         computerscore++;
        }
-       }
 
+       }
+ machine.textContent = computerscore;
+        human.textContent = humanscore;
 function returnresult(str)
 {
     const li = document.createElement("li");
