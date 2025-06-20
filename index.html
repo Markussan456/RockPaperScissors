@@ -6,7 +6,11 @@
     <title>Rock Paper Scissors</title>
 </head>
 <body>
+    <div class="container">
+        <button id="play">Play Round !</button>
+    </div>
     <script>
+  
         /*Need 3 variables - Rock Paper Scissors*/
          let rock = "rock";
             let paper = "paper";
@@ -51,22 +55,16 @@
        let humanselecton = null;
        let computerselection = null;
        /*playRound(humanselection, computerselection);*/
-       playgame();
+       
        function playgame ()
        {
         /* Scores */
 let humanscore = 0;
           let computerscore = 0;
-          choices();
-          playRound(humanselection,computerselection);
-          choices();
-          playRound(humanselection,computerselection);
-          choices();
-          playRound(humanselection,computerselection);
-          choices();
-          playRound(humanselection,computerselection);
-          choices();
-          playRound(humanselection,computerselection);
+         choices();
+         playRound(humanselection,computerselection);
+          
+          
           if (humanscore > computerscore)
           {
             console.log("You Win!! You got " + humanscore + " Points, and the machine got "+ computerscore + " Points")
@@ -121,6 +119,10 @@ humanscore++;
 
 
        }
+             let playbutton = document.getElementById("play");
+        playbutton.addEventListener("click",()=>{
+           playgame();
+        })
     </script>
 </body>
 </html>
