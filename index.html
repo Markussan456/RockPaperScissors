@@ -6,7 +6,27 @@
     <title>Rock Paper Scissors</title>
 </head>
 <body>
-    <div class="container">
+    <style>
+        .Listonis
+        {
+            display: flex;
+            border: solid 2px black;
+            
+            height: 400px;
+            overflow: scroll;
+        }
+        .listik 
+        {
+            display: flex;
+            flex-direction: column;
+        }
+        ul li{
+            gap: 60px;
+            display: block;
+            margin-right: 10px;
+        }
+    </style>
+    <div class="btncontainer">
         <button id="rockus">Rock</button>
         <button id="papirus">Paper</button>
         <button id="scissorss">Scissors</button>
@@ -14,9 +34,13 @@
     <div class="resultons" id="resultons">
         <h1>HumanScore: <p id="humanscore"></p> 
         <h2>MachineScore: <p id="machinescore"></p></h2></h1>
+        <h3>Winner: <p id="winster"></p></h3>
+        <div class = "Listonis">
 <ul id="listik">
 
 </ul>
+        </div>
+
     </div>
     <script>
   
@@ -94,16 +118,17 @@
             },3000);
 if (humanscore > computerscore)
           {
-           returnresult("You Win!! You got " + humanscore + " Points, and the machine got "+ computerscore + " Points");
-
+           /*returnresult("You Win!! You got " + humanscore + " Points, and the machine got "+ computerscore + " Points");*/
+winner.textContent = "You Win!! You got " + humanscore + " Points, and the machine got "+ computerscore + " Points";
           }
           else if(humanscore < computerscore)
           {
-            returnresult("You Lost, You got " + humanscore + " Points, and the machine got "+ computerscore + " Points");
-
+           /* returnresult("You Lost, You got " + humanscore + " Points, and the machine got "+ computerscore + " Points");*/
+winner.textContent = "You Lost, You got " + humanscore + " Points, and the machine got "+ computerscore + " Points";
           }
           else {
-            returnresult("It's A Draw, You got " + humanscore + " Points, and the machine got "+ computerscore + " Points");
+            /*returnresult("It's A Draw, You got " + humanscore + " Points, and the machine got "+ computerscore + " Points");*/
+            winner.textContent = "It's A Draw, You got " + humanscore + " Points, and the machine got "+ computerscore + " Points";
           }
           }
           
@@ -162,6 +187,11 @@ function returnresult(str)
        function cleartable()
        {
         resultable.textContent = "";
+        winner.textContent = "";
+        humanscore = 0;
+        computerscore = 0;
+        machine.textContent = computerscore;
+        human.textContent = humanscore;
        }
              let rockbtn = document.getElementById("rockus");
         rockbtn.addEventListener("click",()=>{
@@ -178,6 +208,7 @@ function returnresult(str)
         let resultable = document.getElementById("listik");
         let machine = document.getElementById("machinescore");
         let human = document.getElementById("humanscore");
+        let winner = document.getElementById("winster");
         let gameover = false;
     </script>
 </body>
